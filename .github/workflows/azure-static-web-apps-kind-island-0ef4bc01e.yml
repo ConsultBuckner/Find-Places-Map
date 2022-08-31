@@ -3,11 +3,13 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-      - dev
+      - release
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - dev
+      - release
+env:
+  NODE_VERSION: '16.16.0'
 
 jobs:
   build_and_deploy_job:
@@ -18,19 +20,24 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - name: Build And Deploy
+      - name: Use Node.js ${{ env.NODE_VERSION }}
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
+          node-version: ${{ env.NODE_VERSION }}
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_KIND_ISLAND_0EF4BC01E }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
-          api_location: "api" # Api source code path - optional
+          #api_location: "api" # Api source code path - optional
           output_location: "public" # Built app content directory - optional
+          skip_app_build: true
           ###### End of Repository/Build Configurations ######
+        env:
+          GOOGLEMAPSAPIKEY: ${{ secrets.GOOGLEAPIKEY }}
+          MAPQUESTAPIKEY: ${{ secrets.MAPQUESTAPIKEY }}          
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
