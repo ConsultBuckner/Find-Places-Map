@@ -3,11 +3,11 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-      - dev
+      - production
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - dev
+      - production
 env:
   NODE_VERSION: '16.16.0'
 
@@ -33,7 +33,7 @@ jobs:
           app_location: "views" # App source code path
           #api_location: "api" # Api source code path - optional
           output_location: "public" # Built app content directory - optional
-          skip_app_build: true
+          app_build_command: "npm start"
           ###### End of Repository/Build Configurations ######
         env:
           GOOGLEMAPSAPIKEY: ${{ secrets.GOOGLEAPIKEY }}
