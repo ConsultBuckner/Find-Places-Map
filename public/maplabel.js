@@ -86,7 +86,7 @@ function MapLabel(opt_options) {
   
     var panes = this.getPanes();
     if (panes) {
-      panes.overlayPane.appendChild(canvas);
+      panes.overlayLayer.appendChild(canvas);
     }
   };
   MapLabel.prototype['onAdd'] = MapLabel.prototype.onAdd;
