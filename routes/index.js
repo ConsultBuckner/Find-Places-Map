@@ -6,7 +6,7 @@ var path = require('path')
 /* GET home page. */
 router.get('/', function (req, res, next) {
   console.log(req.originalUrl)
-  let sPath = path.join(process.cwd(), 'public', 'index._html')
+  let sPath = path.join(process.cwd(), 'views', 'index.html')
   fs.readFile(sPath, 'utf8', function (err, data) {
     data = data
       .replace('@:GOOGLEMAPSAPIKEY', process.env.GOOGLEMAPSAPIKEY)
