@@ -5,7 +5,6 @@
  */
 
 var app = require('./app')
-//var debug = require("debug")("find-businesses-map:server");
 var http = require('http')
 
 /**

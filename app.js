@@ -1,19 +1,17 @@
 var createError = require('http-errors')
 var express = require('express')
 var path = require('path')
-//const fs = require('fs')
-//var router = express.Router()
 
 var indexRouter = require('./routes/index')
 
 var app = express()
-//app.set('views', path.join(__dirname, 'views'))
-
 
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
+
 app.get('/favicon.ico', (req, res) => res.status(204))
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   console.log(req.originalUrl)

@@ -8,4 +8,11 @@ Additionally, to make sure all possible results are returned, the app will expon
 
 Finally the app offers the option to copy the results to the clipboard, or export a tab-delimited document with all the results. And for curious users, there is a Toggle Matrix button which will reveal the tessellated search matrix on the map with each rectangle showing how many requests were run and results returned from the MapQuest Places Search API. This last feature utilizes the [Google Maps Overlay View](https://developers.google.com/maps/documentation/javascript/customoverlays) object that is subclassed to allow drawing custom text labels directly onto the map Overlay Pane by further manipulation of the [MVCObject Class](https://developers.google.com/maps/documentation/javascript/reference/event#MVCObject). 
 
+# Requirements
+
+You will need an API Key for Google Maps and for MapQuest and these should be stored in an .env file or .vscode/launch.json file for local development using the following key names: GOOGLEMAPSAPIKEY and MAPQUESTAPIKEY
+
+# Demo
+
+[View Demo Here](https://viafindplacesmap.azurewebsites.net/)
 
